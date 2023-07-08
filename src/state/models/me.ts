@@ -20,6 +20,7 @@ export class MeModel {
   description: string = ''
   avatar: string = ''
   followsCount: number | undefined
+  followersYouKnowCount: number | undefined
   followersCount: number | undefined
   mainFeed: PostsFeedModel
   savedFeeds: SavedFeedsModel
@@ -146,12 +147,15 @@ export class MeModel {
         this.avatar = profile.data.avatar || ''
         this.followsCount = profile.data.followsCount
         this.followersCount = profile.data.followersCount
+        // TODO: implement on atproto side
+        this.followersYouKnowCount = profile.data.followersCount
       } else {
         this.displayName = ''
         this.description = ''
         this.avatar = ''
         this.followsCount = profile.data.followsCount
         this.followersCount = undefined
+        this.followersYouKnowCount = undefined
       }
     })
   }
